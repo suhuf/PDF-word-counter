@@ -1,7 +1,6 @@
 import requests
 import os
 
-
 set2 = 0
 
 set = 0
@@ -39,14 +38,15 @@ while set == 0:
 
         break
 
-
 while set == 1:
 
-    chc2 = input("\n" "Would you like to extract word count of ... ") # len
+    chc2 = input("\n" "Would you like to extract word count of ... " + str(len(d_list)) + " files? ")
 
     a_list = []
 
     if chc2 in y_response:
+        set = 2
+
         for i in d_list:
             ext_n = os.path.splitext(i)[-1]
             if ext_n == ".pdf":
@@ -55,12 +55,16 @@ while set == 1:
             else:
                 print(r"This Item: " + str(i) + " will not be parsed as it is not a .pdf file."
                                                 " (This may be an extension naming issue)" "\n")
+        if len(a_list) == 0:
+            print("There are no files identified as .PDF files. Cancelling script")
+
+            break
 
         print("\n" "These are your .PDFs primed for analysis: " + "\n", *a_list, sep = "\n")
 
+
     if chc2 in n_response:
         print("Cancelling")  # Create loop back menu
+        set =+ 1
 
         break
-
-
