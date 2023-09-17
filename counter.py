@@ -1,5 +1,9 @@
 import requests
+import re
 import os
+from pdfminer.high_level import extract_pages, extract_text
+import sys
+
 
 set2 = 0
 
@@ -18,6 +22,28 @@ while set2 == 0:
 
     else:
         print(r"You are not in C:\Users\seca\Documents\Programming_Etc")  # Change.
+
+
+def pdfhunter(x):
+
+    data = extract_text(x)
+
+    out=sys.stdout
+
+    out.write(data)
+
+    '''for word in data & :
+        
+        num_count = num_count + 1
+        [] = [i: (num_count)] '''
+        
+
+    #with open(x, 'rb') as outfile:
+       
+        #raw = parser.from_file(outfile)
+       # print(raw['content'])
+       # outfile.close()
+
 
 
 while set == 0:
@@ -63,8 +89,16 @@ while set == 1:
         print("\n" "These are your .PDFs primed for analysis: " + "\n", *a_list, sep = "\n")
 
 
+        
+        for file in a_list: #directory add that
+            pdfhunter(file)
+            
+
     if chc2 in n_response:
         print("Cancelling")  # Create loop back menu
         set =+ 1
 
         break
+
+
+
