@@ -4,7 +4,6 @@ import os
 from pdfminer.high_level import extract_pages, extract_text
 import sys
 
-
 set2 = 0
 
 set = 0
@@ -32,18 +31,15 @@ def pdfhunter(x):
 
     out.write(data)
 
-    '''for word in data & :
-        
-        num_count = num_count + 1
-        [] = [i: (num_count)] '''
-        
+    word_count = len(re.findall(r'\w+', data))
+
+    print("\n" "There are " + str(word_count) + " words in "  + x )
 
     #with open(x, 'rb') as outfile:
        
         #raw = parser.from_file(outfile)
        # print(raw['content'])
        # outfile.close()
-
 
 
 while set == 0:
@@ -88,12 +84,20 @@ while set == 1:
 
         print("\n" "These are your .PDFs primed for analysis: " + "\n", *a_list, sep = "\n")
 
-
+        x = 0
         
         for file in a_list: #directory add that
             pdfhunter(file)
             
+            if file != a_list[-1]:
+                chc3 = input("\n" "Would you like to continue this output? ")
 
+            if chc3 in y_response:
+                continue
+            
+            if chc3 in n_response:
+                break
+    
     if chc2 in n_response:
         print("Cancelling")  # Create loop back menu
         set =+ 1
