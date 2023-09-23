@@ -3,6 +3,7 @@ import re
 import os
 from pdfminer.high_level import extract_pages, extract_text
 import sys
+import string
 
 set2 = 0
 
@@ -27,20 +28,37 @@ def pdfhunter(x):
 
     data = extract_text(x)
 
-    out=sys.stdout
 
+
+    w_dict = dict()
+
+    out=sys.stdout
+   
     out.write(data)
 
-    word_count = len(re.findall(r'\w+', data))
+    word_count = len(re.findall(r'\w+', data))    # check for find regex word match in data count.
+
+    word_list = re.split(r'\W', data)
+
+    print(word_list) # think i got it
 
     print("\n" "There are " + str(word_count) + " words in "  + x )
 
-    #with open(x, 'rb') as outfile:
-       
-        #raw = parser.from_file(outfile)
-       # print(raw['content'])
-       # outfile.close()
+    # Testing
 
+        #words = line.split(" ")
+
+    for r_word in word_list:
+        
+        word = r_word.lower()
+
+        if word in w_dict:
+            w_dict[word] = w_dict[word] + 1
+        else:
+            w_dict[word] = 1
+
+    for key in list(w_dict.keys()):
+        print(key, ":", w_dict[key]) 
 
 while set == 0:
 
