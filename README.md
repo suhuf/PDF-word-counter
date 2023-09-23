@@ -10,9 +10,8 @@ Standardized output text that is easy to interact with ✅
 
 Counts word occurences per file ✅
 
+
 **Works In Progess:**
-
-
 
   Add index/dictionary at end to show word occurence based on every document or something similar
 
