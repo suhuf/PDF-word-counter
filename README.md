@@ -10,7 +10,7 @@ Standardized output text that is easy to interact with ✅
 
 Counts word occurences per file ✅
 
-**Current road map:**
+**Works In Progess**
 
 
 
