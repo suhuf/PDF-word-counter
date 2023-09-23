@@ -19,5 +19,6 @@ Counts word occurences per file ✅
 
   Add in modular functionality for anyones folders/directories once baseline is complete.
 
-
+  Once above is complete remove all test/dead/zombie code etc.
+  
   Possibly add a GUI via tkinter instead of using command line.
